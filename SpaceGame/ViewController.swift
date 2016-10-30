@@ -19,39 +19,36 @@ class ViewController: UIViewController {
     @IBOutlet weak var topBar: UIProgressView!
     @IBOutlet weak var bottomBar: UIProgressView!
     
-    var timeElapsed: Double = 0
-    var timer: Timer?
-    var enemyDistance: CGFloat = 1
-    var enemyMove: Bool = true
+    //var timeElapsed: Double = 0
+    //var timer: Timer?
+    //var enemyDistance: CGFloat = 1
+    //var enemyMove: Bool = true
     
-    @IBAction func startButton(_ sender: AnyObject) {
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.whileRunning), userInfo: AnyObject?, repeats: true)
-    }
+    //@IBAction func startButton(_ sender: AnyObject) {
+    //    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.whileRunning), userInfo: nil, repeats: true)
+    //}
     
-    func whileRunning(){
-        timeElapsed = self.timeElapsed + 0.01
-        print("playerShip = \(playerShip)")
-        print("enemyShip = \(enemyShip)")
-        print("enemyShip.frame.minX = \(enemyShip.frame.minX)")
-        print("self.view.frame = \(self.view.frame)")
-        print("self.view.frame.minX = \(self.view.frame.minX)")
-        if ((enemyShip.frame.minX >= self.view.frame.minX) && enemyMove == true){
-            self.enemyShip.center.x = enemyShip.center.x + enemyDistance
-            if (enemyShip.frame.maxX >= self.view.frame.maxX){
-                enemyMove = false
-            }
-        }else if ((enemyShip.frame.maxX <= self.view.frame.maxX) && enemyMove == false){
-            self.enemyShip.center.x = enemyShip.center.x - enemyDistance
-            if (enemyShip.frame.minX <= self.view.frame.minX){
-                enemyMove = true
-            }
-        }
-    }
+    //func whileRunning(){
+    //    timeElapsed = self.timeElapsed + 0.1
+    //
+    //    if ((enemyShip.frame.minX >= self.view.frame.minX) && enemyMove == true){
+    //        self.enemyShip.center.x = enemyShip.center.x + enemyDistance
+    //        if (enemyShip.frame.maxX >= self.view.frame.maxX){
+    //            enemyMove = false
+    //        }
+    //    }else if ((enemyShip.frame.maxX <= self.view.frame.maxX) && enemyMove == false){
+    //        self.enemyShip.center.x = enemyShip.center.x - enemyDistance
+    //        if (enemyShip.frame.minX <= self.view.frame.minX){
+    //            enemyMove = true
+    //        }
+    //    }
+    //}
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        print("\(enemyShip.center.x)")
+        print("\(enemyShip.frame.minX)")
+        print("(enemyShip.leading)")
 
         // Do any additional setup after loading the view, typically from a nib.
     }
